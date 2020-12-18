@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang='ja'>
+    <head>
+        <meta chareset='urf-8'>
+        <title>献立の組み合わせ判定</title>
+        <link rel='stylesheet'
+        href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'
+        crossorigin='anonymous'>
+        <link rel='stylesheet' type='text/css'
+            href='{% static 'combi_make/css/style.css' %}'>
+    </head>
+    <body class='container'>
+        <div>
+            <p class='h3 m-2'>主菜</p>
+            <h3 class='m-2'>{{main_num}}</h3>
+            <p class='h3 m-2'>副菜</p>
+            <h3 class='m-2'>{{sub_num}}</h3>
+            <p class='h3 m-2'>汁物</p>
+            <h3 class='m-2'>{{soup_num}}</h3>
+        </div>
+
+        <form action='{% url 'index' %}' method='get'>
+            {% csrf_token %}
+            <button type="submit" class="download btn-secondary">戻る</button>
+        </form>
+
+    </body>
+</html>
